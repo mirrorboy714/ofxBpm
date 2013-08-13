@@ -62,6 +62,7 @@ void testApp::mouseDragged(int x, int y, int button){
 void testApp::mousePressed(int x, int y, int button){
 
     bpm.start();
+    ofDrawBitmapString("Start");
 
 }
 
@@ -69,6 +70,7 @@ void testApp::mousePressed(int x, int y, int button){
 void testApp::mouseReleased(int x, int y, int button){
 
     bpm.stop();
+    ofDrawBitmapString("Stop",ofGetHeight);
 
 }
 
