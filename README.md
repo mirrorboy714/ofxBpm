@@ -1,7 +1,7 @@
 ofxBpm
 ======
 
-BPM Timer for Musical Apps. 
+BPM Addon for Musical Apps. 
 
 You can set BPM (Beat per Minutes)  and BPB (Beat Per Bar).
 For example, if You want to listen 4Beat timing,then set bpm to 120, BPB to 4.
