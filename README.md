@@ -4,7 +4,7 @@ ofxBpm
 BPM Addon for Musical Apps. 
 
 You can set BPM (Beat per Minutes)  and BPB (Beat Per Bar).
-For example, if You want to listen 4Beat timing,then set bpm to 120, BPB to 4.
+For example, if you want to listen 4Beat timing, then set bpm to 120, BPB to 4.
 After that, you get beat timings on listener function.
 
 This addon uses ofThread. 
