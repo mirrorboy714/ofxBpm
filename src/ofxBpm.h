@@ -6,46 +6,70 @@
 //
 //
 
-#pragma once
+/*
+You must add listener on testApp and listen beat timing.
+ 
+example on testApp.cpp
+ 
+ 
+ofAddListener(bpm.beatEvent, this, &testApp::play);
 
-class ofxBpm {
+void testApp::play(void){
+ 
+  //sound.play();
+  //but, you could not draw somethings.
+}
+
+ */
+
+#pragma once
+#include "ofMain.h"
+#include "ofThread.h"
+
+class ofxBpm : private ofThread{
     
 public:
-    ofxBpm(float bpm = 120.);
+    static const float OFX_BPM_MAX;
+    static const float  OFX_BPM_DEFAULT;
+    static const float OFX_BPM_MIN;
+    static const int OFX_BPM_TICK;
+
+    explicit ofxBpm(float bpm = OFX_BPM_DEFAULT,int beatPerBar = 4);
     
-    static const int OFX_BPM_MAX = 300;
-    static const int OFX_BPM_MIN = 1;
-
     void start();
-    void update();
-
     void stop();
     void reset();
     
     void setBpm(float bpm);
-    float bpm() const;
-
-    bool is4Beat() const;
-    bool is8Beat() const;
-    bool is16Beat() const;
+    float getBpm() const;
+    
+    void setBeatPerBar(int beatPerBar);
+    
     bool isPlaying() const;
 
-    int getCountOf4Beat() const;
-    int getCountOf8Beat() const;
-    int getCountOf16Beat() const;
+    ofEvent<void> beatEvent;
 
 private:
-    float _bpm;
+    void threadedFunction();
         
-    bool  _is32Beat;
-    bool  _isPlaying;
-    int _countOf32Beat;
     
-    double _totalTime;
-    double _durationOf32Beat;
-    double _remainderOf32Beat;
+    
+    float _bpm;
+    bool  _isTick;
+    bool  _isPlaying;
+    int _countOfTick;
+    long _totalTime;
+    long _durationOfTick;
+    long _remainderOfTick;
     
     float _preTime;
+    int _beatPerBar;
     
-    inline int getCountOf32Beat() const;
+    inline int getCountOfTick() const;
 };
+
+//init
+const float ofxBpm::OFX_BPM_MAX = 300. ;
+const float ofxBpm::OFX_BPM_DEFAULT = 120.;
+const float ofxBpm::OFX_BPM_MIN = 1.;
+const int ofxBpm::OFX_BPM_TICK = 960;
