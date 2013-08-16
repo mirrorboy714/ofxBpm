@@ -1,7 +1,12 @@
 ofxBpm
 ======
 
-BPM Timer for Musical Apps. You can set BPM (1 ~ 300) and Beat Per Bar,then you get beat timing on listener function.
+BPM Timer for Musical Apps. 
+
+You can set BPM (Beat per Minutes : 1 ~ 300) and Beat Per Bar.
+then, you get beat timing on listener function.
+
+This addon uses ofThread. you could not draw on listener function.
 
 ======
 
