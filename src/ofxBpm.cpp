@@ -119,7 +119,6 @@ void ofxBpm::setBeatPerBar(int beatPerBar){
 void ofxBpm::setBpm(float bpm){
     
     if( lock() ){
-        ofLog() << ofToString(bpm);
         if(bpm < OFX_BPM_MIN){
             
             this->bpm = OFX_BPM_MIN;

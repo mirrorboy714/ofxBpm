@@ -17,7 +17,6 @@ void ofApp::setup(){
 }
 
 void ofApp::onBeatEvent() {
-    // we use bpm.barIndex+1 because bpm.barIndex goes from 0 to 3
     gotBeat = true;
 }
 
