@@ -30,7 +30,7 @@ void ofxBpm::start(){
     isPlaying = true;
     reset();
     
-    startThread(true, false);   // blocking, verbose
+    startThread(true);   // blocking, verbose
     
 }
 
