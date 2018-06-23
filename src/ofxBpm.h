@@ -36,6 +36,7 @@ public:
 
     explicit ofxBpm(float bpm = OFX_BPM_DEFAULT,int beatPerBar = 4);
     
+    void setup(float bpm, int beatPerBar);
     void start();
     void stop();
     void reset();
@@ -45,25 +46,25 @@ public:
     
     void setBeatPerBar(int beatPerBar);
     
-    bool isPlaying() const;
-
     ofEvent<void> beatEvent;
 
+    float bpm;
+    int barIndex;
+    bool isTick;
+    bool isPlaying;
+    int countOfTick;
+    long totalTime;
+    long durationOfTick;
+    long remainderOfTick;
+    
+    float preTime;
+    int beatPerBar;
 private:
     void threadedFunction();
         
     
     
-    float _bpm;
-    bool  _isTick;
-    bool  _isPlaying;
-    int _countOfTick;
-    long _totalTime;
-    long _durationOfTick;
-    long _remainderOfTick;
     
-    float _preTime;
-    int _beatPerBar;
     
     inline int getCountOfTick() const;
 };
