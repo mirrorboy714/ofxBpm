@@ -8,14 +8,14 @@
 
 /*
 You must add listener on testApp and listen beat timing.
- 
+
 example on testApp.cpp
- 
- 
+
+
 ofAddListener(bpm.beatEvent, this, &testApp::play);
 
 void testApp::play(void){
- 
+
   //sound.play();
   //but, you could not draw somethings.
 }
@@ -27,7 +27,7 @@ void testApp::play(void){
 #include "ofThread.h"
 
 class ofxBpm : private ofThread{
-    
+
 public:
     static const float OFX_BPM_MAX;
     static const float  OFX_BPM_DEFAULT;
@@ -35,25 +35,23 @@ public:
     static const int OFX_BPM_TICK;
 
     explicit ofxBpm(float bpm = OFX_BPM_DEFAULT,int beatPerBar = 4);
-    
+
     void start();
     void stop();
     void reset();
-    
+
     void setBpm(float bpm);
     float getBpm() const;
-    
+
     void setBeatPerBar(int beatPerBar);
-    
+
     bool isPlaying() const;
 
     ofEvent<void> beatEvent;
 
 private:
     void threadedFunction();
-        
-    
-    
+
     float _bpm;
     bool  _isTick;
     bool  _isPlaying;
@@ -61,7 +59,7 @@ private:
     long _totalTime;
     long _durationOfTick;
     long _remainderOfTick;
-    
+
     float _preTime;
     int _beatPerBar;
 
