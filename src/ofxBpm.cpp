@@ -10,6 +10,12 @@
 #include "ofxBpm.h"
 #include "ofMain.h"
 
+//init
+const float ofxBpm::OFX_BPM_MAX = 300. ;
+const float ofxBpm::OFX_BPM_DEFAULT = 120.;
+const float ofxBpm::OFX_BPM_MIN = 1.;
+const int ofxBpm::OFX_BPM_TICK = 960;
+
 ofxBpm::ofxBpm(float bpm,int beatPerBar):_beatPerBar(beatPerBar){
     
     _isPlaying = false;

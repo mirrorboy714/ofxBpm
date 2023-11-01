@@ -64,12 +64,6 @@ private:
     
     float _preTime;
     int _beatPerBar;
-    
+
     inline int getCountOfTick() const;
 };
-
-//init
-const float ofxBpm::OFX_BPM_MAX = 300. ;
-const float ofxBpm::OFX_BPM_DEFAULT = 120.;
-const float ofxBpm::OFX_BPM_MIN = 1.;
-const int ofxBpm::OFX_BPM_TICK = 960;
